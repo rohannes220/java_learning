@@ -1,0 +1,35 @@
+System.out.println("Rohan");
+Rohan
+
+System.out.println("Rohan says \"hi");
+Rohan says "hi
+
+System.out.println("Rohan says \"hi\"");
+Rohan says "hi"
+
+System.out.println("Rohan says \"hi" and hello");
+Error output 
+
+System.out.println("Rohan says \"hi\" and \"hello");
+Rohan says "hi" and "hello
+
+System.out.println("Rohan says \"hi\" and \"hello\"");
+Rohan says "hi" and "hello"
+
+System.out.println("\"hi" + "\"and hello");
+"hi"and hello
+
+System.out.println('"');
+"
+
+System.out.println(''');
+Error
+
+System.out.println('\'');
+'
+
+System.out.println("\" \\ .")
+" \ .
+
+This is a backslash character: "\"
+System.out.println("This is a backslash character: \"\\\"")
