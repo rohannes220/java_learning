@@ -1,4 +1,4 @@
-package practice.classes.constructor;
+package practice.classes.constructors.car;
 
 public class Driver {
     public static void main(String[] args) {

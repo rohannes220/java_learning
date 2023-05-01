@@ -1,4 +1,4 @@
-package practice.classes.constructor;
+package practice.classes.constructors.car;
 
 public class Car {
     int year;
@@ -7,11 +7,11 @@ public class Car {
     String model;
     String color;
 
-    Car(String ma, String mo, int y, double m, String c){
+    Car(String ma, String mo, int y, double m, String c) {
         year = y;
         mileage = m;
         make = ma;
         model = mo;
-        color = c; 
+        color = c;
     }
 }
