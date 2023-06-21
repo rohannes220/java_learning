@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class FourNumbers {
 
-    public static String isEqual(int a, int b, int c, int d) {
+    public static boolean isEqual(int a, int b, int c, int d) {
         if (a == b && b == c && c == d) {
-            return "Numbers are equal";
+            return true;
         }
-        return "Numbers are not equal";
+        return false;
     }
 
     public static void main(String[] args) {
@@ -24,8 +24,12 @@ public class FourNumbers {
 
         System.out.print("Input fourth number: ");
         int fourthNumber = e.nextInt();
-        System.out.println(isEqual(firstNumber, fourthNumber, secondNumber, thirdNumber));
 
+        if (isEqual(firstNumber, secondNumber, thirdNumber, fourthNumber) == true) {
+            System.out.println("The numbers are equal.");
+        } else {
+            System.out.println("The numbers are not equal.");
+        }
         e.close();
     }
 
