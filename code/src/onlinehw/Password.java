@@ -132,6 +132,6 @@ public class Password {
         } else {
             System.out.println("The password is invalid: " + password);
         }
-
+        s.close();
     }
 }
