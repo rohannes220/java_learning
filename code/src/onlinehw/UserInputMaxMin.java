@@ -1,5 +1,6 @@
 package onlinehw;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserInputMaxMin {
@@ -61,178 +62,169 @@ public class UserInputMaxMin {
     }
 
     public static void testGetSum() {
-        // {1} --> 1
-        int result = getSum(new int[] { 1 });
-        int expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
+        // {1} -> 1
+        // {1,-2,-3} -> -4
+        // {2,2,-2} -> 2
+        // {2,2,3,3} -> 10
+        // {-1,-3,-5,-8} -> -17
+        // {0} -> 0
+        int[][] inputValues = new int[][] {
+                { 1 },
+                { 1, -2, -3 },
+                { 2, 2, -2 },
+                { 2, 2, 3, 3 },
+                { -1, -3, -5, -8 },
+                { 0 }
+        };
+        int[] expectedValues = new int[] {
+                1,
+                -4,
+                2,
+                10,
+                -17,
+                0
+        };
 
-        // {1,-2,-3}
-        result = getSum(new int[] { 1, -2, -3 });
-        expected = -4;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-
-        // {2,2,-2}
-        result = getSum(new int[] { 2, 2, -2 });
-        expected = 2;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-
-        // {2,2,3,3}
-        result = getSum(new int[] { 2, 2, 3, 3 });
-        expected = 10;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-
-        // {-1,-3,-5,-8}
-        result = getSum(new int[] { -1, -3, -5, -8 });
-        expected = -17;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-
+        int totalTestCases = inputValues.length;
+        int failedTestCases = 0;
+        for (int i = 0; i < totalTestCases; i++) {
+            int[] currInput = inputValues[i];
+            int expected = expectedValues[i];
+            int actual = getSum(currInput);
+            if (expected != actual) {
+                failedTestCases += 1;
+                System.out.println("Test case failed");
+                System.out.println("Input: " + Arrays.toString(currInput));
+                System.out.println("Expected output: " + expected);
+                System.out.println("Actual output: " + actual);
+                System.out.println();
+            }
+        }
+        System.out.println("Testing of getSum Completed!");
+        System.out.println((totalTestCases - failedTestCases) + " / " + totalTestCases + " cases passed");
     }
 
     public static void testGetMaxValue() {
         // {1} --> 1
-        int result = getMaxValue(new int[] { 1 });
-        int expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (1,1,1,5)--> 5
-        result = getMaxValue(new int[] { 1, 1, 1, 5 });
-        expected = 5;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (4,4,4,4)--> 4
-        result = getMaxValue(new int[] { 4, 4, 4, 4 });
-        expected = 4;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (-3,-2,-1,0)--> 0
-        result = getMaxValue(new int[] { -3, -2, -1, 0 });
-        expected = 0;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (10,34,87,1000) --> 1000
-        result = getMaxValue(new int[] { 10, 34, 87, 1000 });
-        expected = 1000;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (3,3,9,9) --> 9
-        result = getMaxValue(new int[] { 3, 3, 9, 9 });
-        expected = 9;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
         // (-3,-5,-9,-10) --> -3
-        result = getMaxValue(new int[] { -3, -5, -9, -10 });
-        expected = -3;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
 
+        int[][] inputs = new int[][] {
+                { 1 },
+                { 1, 1, 1, 5 },
+                { 4, 4, 4, 4 },
+                { -3, -2, -1, 0 },
+                { 10, 34, 87, 1000 },
+                { 3, 3, 9, 9 },
+                { -3, -5, -9, -10 },
+        };
+
+        int[] expectedOutputs = new int[] {
+                1,
+                5,
+                4,
+                0,
+                1000,
+                9,
+                -3,
+        };
+
+        int totalTestCases = inputs.length;
+        int failedCases = 0;
+        for (int i = 0; i < totalTestCases; i++) {
+            int[] input = inputs[i];
+            int expectedOutput = expectedOutputs[i];
+            int actualOutput = getMaxValue(input);
+            if (actualOutput != expectedOutput) {
+                failedCases += 1;
+                System.out.println("Failed Case");
+                System.out.println("Input: " + Arrays.toString(input));
+                System.out.println("Actual Output: " + actualOutput);
+                System.out.println("Expected Output: " + expectedOutput);
+                System.out.println();
+            }
+        }
+
+        // 8 / 10 cases passed
+        System.out.println("Testing of getMaxValue Completed!");
+        System.out.println((totalTestCases - failedCases) + " / " + totalTestCases + " cases passed");
     }
 
     public static void testGetMinValue() {
-        // {1} -- > 1
-        int result = getMinValue(new int[] { 1 });
-        int expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {2,2,2} -> 2
-        result = getMinValue(new int[] { 2, 2, 2 });
-        expected = 2;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {-1,-2,-3} -> -3
-        result = getMinValue(new int[] { -1, -2, -3 });
-        expected = -3;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {-2,3,4} -> -2
-        result = getMinValue(new int[] { -2, 3, 4 });
-        expected = -2;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {4,1,62,127} -> 1
-        result = getMinValue(new int[] { 4, 1, 62, 127 });
-        expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {1,3,3,3} -> 1
-        result = getMinValue(new int[] { 1, 3, 3, 3 });
-        expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {1,1,2,2} -> 1
-        result = getMinValue(new int[] { 1, 1, 2, 2 });
-        expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {4,4,4,1} -> 1
-        result = getMinValue(new int[] { 4, 4, 4, 1 });
-        expected = 1;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {-3} -> -3
-        result = getMinValue(new int[] { -3 });
-        expected = -3;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
-        // {45,6,7,-2} -> -2
-        result = getMinValue(new int[] { 45, 6, 7, -2 });
-        expected = -2;
-        System.out.println("result: " + result);
-        System.out.println("expected: " + expected);
-        System.out.println();
+        int[][] inputs = {
+                { 11, 2, 3 },
+                { 1, 2, 2 },
+                { 0, 0, 0 },
+                { 1 },
+                { 87, 9, 10 },
+                { -2, -4, -5 },
+                { -1, 3, 4 },
+        };
+        int[] expectedOutputs = { 2, 1, 0, 1, 9, -5, -1 };
+
+        int totalTestCases = inputs.length;
+        int failure = 0;
+        for (int i = 0; i < inputs.length; i++) {
+            int[] input = inputs[i];
+            int expectedOutput = expectedOutputs[i];
+            int actualOutput = getMinValue(input);
+            if (actualOutput != expectedOutput) {
+                failure += 1;
+                System.out.println("Failed Case");
+                System.out.println("Input: " + Arrays.toString(input));
+                System.out.println("Actual Output: " + actualOutput);
+                System.out.println("Expected Output: " + expectedOutput);
+                System.out.println();
+            }
+        }
+        System.out.println("Testing of getMinValue Completed!");
+        System.out.println((totalTestCases - failure) + " / " + totalTestCases + " cases passed");
 
     }
 
     public static void testGetStringFromIntegerArray() {
-        // {1, 2, 3} -> "1 2 3"
-        String result = getStringFromIntegerArray(new int[] { 1, 2, 3 });
-        String expected = "1 2 3";
-        System.out.println("result: '" + result + "'");
-        System.out.println("expected: '" + expected + "'");
-        System.out.println();
-        // {11, -2, 3, 41} -> "11 -2 3 41"
-        result = getStringFromIntegerArray(new int[] { 11, -2, 3, 41 });
-        expected = "11 -2 3 41";
-        System.out.println("result: '" + result + "'");
-        System.out.println("expected: '" + expected + "'");
-        System.out.println();
-        // {12} -> "12"
-        result = getStringFromIntegerArray(new int[] { 12 });
-        expected = "12";
-        System.out.println("result: '" + result + "'");
-        System.out.println("expected: '" + expected + "'");
-        System.out.println();
-        // {} -> ""
-        result = getStringFromIntegerArray(new int[] {});
-        expected = "";
-        System.out.println("result: '" + result + "'");
-        System.out.println("expected: '" + expected + "'");
-        System.out.println();
+
+        int[][] inputs = new int[][] {
+                { 4, 5, 6, 7 },
+                { -3, 1, 2 },
+                { 2, 2, -2 },
+                { 2, 12, 13, 3 },
+                { -1, -3, -5, -8 },
+                { 0 }
+        };
+
+        String[] outputs = new String[] {
+                "4 5 6 7",
+                "-3 1 2",
+                "2 2 -2",
+                "2 12 13 3",
+                "-1 -3 -5 -8",
+                "0",
+        };
+
+        int totalTestCases = inputs.length;
+        int failedCases = 0;
+
+        for (int i = 0; i < totalTestCases; i++) {
+            int[] input = inputs[i];
+            String expectedOutput = outputs[i];
+            String actualOutput = getStringFromIntegerArray(input);
+            if (expectedOutput.equals(actualOutput) == false) {
+                failedCases += 1;
+                System.out.println("Failed Case");
+                System.out.println("Input: " + Arrays.toString(input));
+                System.out.println("Actual Output: " + actualOutput);
+                System.out.println("Expected Output: " + expectedOutput);
+                System.out.println();
+            }
+        }
+        System.out.println("Testing of getStringFromIntegerArray Completed!");
+        System.out.println((totalTestCases - failedCases) + " / " + totalTestCases + " cases passed");
+
     }
 
     public static void main(String[] args) {
