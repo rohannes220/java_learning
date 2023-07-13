@@ -106,13 +106,13 @@ public class SevenBoom {
         int totalCases = inputs.length;
         for (int i = 0; i < totalCases; i++) {
             int[] input = inputs[i];
-            String output = expectedOutputs[i];
+            String expectedOutput = expectedOutputs[i];
             String actualOutput = sevenBoom(input);
-            if (output.equals(actualOutput) == false) {
+            if (expectedOutput.equals(actualOutput) == false) {
                 failedCases += 1;
                 System.out.println("Failed Test Case:");
                 System.out.println("Input: " + Arrays.toString(input));
-                System.out.println("Expected Output: " + output);
+                System.out.println("Expected Output: " + expectedOutput);
                 System.out.println("Actual Output: " + actualOutput);
                 System.out.println();
             }
