@@ -62,6 +62,15 @@ public class SevenBoom {
                 {
 
                 },
+                {
+                        -1111117, 8, 0, 2, 1
+                },
+                {
+                        3, 8, 1, 3, -11117111
+                },
+                {
+                        -7145679, 0, 2, 3, 8, 1
+                },
         };
         String[] expectedOutputs = new String[] {
                 "Boom!",
@@ -78,6 +87,9 @@ public class SevenBoom {
                 "Boom!",
                 "Boom!",
                 "there is no 7 in the array",
+                "Boom!",
+                "Boom!",
+                "Boom!",
         };
         int failedCases = 0;
         int totalCases = inputs.length;
