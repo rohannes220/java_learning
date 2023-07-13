@@ -3,15 +3,26 @@ package onlinehw;
 import java.util.Arrays;
 
 public class SevenBoom {
+    public static boolean containsSeven(int number) {
+        if (number < 0) {
+            number = number * -1;
+        }
+        while (number > 0) {
+            int digit = number % 10;
+            number = number / 10;
+            if (digit == 7) {
+                return true;
+            }
+        }
+        return false;
+
+    }
 
     public static String sevenBoom(int[] array) {
         int length = array.length;
         for (int i = 0; i < length; i++) {
             int number = array[i];
-            int seven = 7;
-            String s = Integer.toString(seven);
-            String n = Integer.toString(number);
-            if (n.indexOf(s) != -1) {
+            if (containsSeven(number) == true) {
                 return "Boom!";
             }
         }
