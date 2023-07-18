@@ -14,6 +14,21 @@ public class PalindromeWord {
         return true;
     }
 
+    public static boolean isPalindrome2(String w) {
+        int fwd = 0;
+        int bkwd = w.length() - 1;
+        while (fwd < bkwd) {
+            char fwdChar = w.charAt(fwd);
+            char bkwdChar = w.charAt(bkwd);
+            if (fwdChar != bkwdChar) {
+                return false;
+            }
+            fwd += 1;
+            bkwd -= 1;
+        }
+        return true;
+    }
+
     public static void testIsPalindrome() {
         // Madam -> false
         // mAdAm -> true
@@ -67,7 +82,7 @@ public class PalindromeWord {
         for (int i = 0; i < totalTestCases; i++) {
             String input = inputs[i];
             boolean expectedOutput = expectedOutputs[i];
-            boolean actualOutput = isPalindrome(input);
+            boolean actualOutput = isPalindrome2(input);
             if (expectedOutput != actualOutput) {
                 System.out.println("Failed Test Case: ");
                 System.out.println("Input: " + input);
@@ -77,7 +92,7 @@ public class PalindromeWord {
                 System.out.println();
             }
         }
-        System.out.println("Testing of isPalindrome Complete!");
+        System.out.println("Testing of isPalindrome2 Complete!");
         System.out.println("Success rate: " + (totalTestCases - failedCases) + "/" + totalTestCases);
     }
 
