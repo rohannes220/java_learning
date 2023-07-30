@@ -23,6 +23,10 @@ public class Counts {
         }
 
         // Iterate over the counts array and print each count
+        printCharCountsFromCountsArray(counts);
+    }
+
+    public static void printCharCountsFromCountsArray(int[] counts) {
         for (int i = 0; i < counts.length; i++) {
             if (counts[i] > 0) {
                 char ch = getChar(i);
