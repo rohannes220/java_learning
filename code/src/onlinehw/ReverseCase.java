@@ -5,13 +5,19 @@ public class ReverseCase {
     public static String reverseCase(String word) {
         String reverseWord = "";
         for (int i = 0; i < word.length(); i++) {
+            // 1. store each individual character
             char ch = word.charAt(i);
+
+            // 2a. take individual character and convert to opposite case
             char oppositeChar = reverseChar(ch);
+            
+            // 3. add oppositeChar to the reverseWord string
             reverseWord += oppositeChar;
         }
         return reverseWord;
     }
 
+    // 2b. find opposite char through ascii
     public static char reverseChar(char ch) {
         int ascii = (int) ch;
         if (ascii >= 65 && ascii <= 90) {
