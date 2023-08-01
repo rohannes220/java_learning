@@ -6,22 +6,21 @@ public class ReverseCase {
         String reverseWord = "";
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
-            int oppositeAscii = reverseAscii(ch);
-            char oppositeChar = (char) oppositeAscii;
+            char oppositeChar = reverseChar(ch);
             reverseWord += oppositeChar;
         }
         return reverseWord;
     }
 
-    public static int reverseAscii(char ch) {
+    public static char reverseChar(char ch) {
         int ascii = (int) ch;
         if (ascii >= 65 && ascii <= 90) {
-            return ascii + 32;
+            return (char) (ascii + 32);
         }
         if (ascii >= 97 && ascii <= 122) {
-            return ascii - 32;
+            return (char) (ascii - 32);
         }
-        return ascii;
+        return (char) ascii;
     }
 
     public static void testReverseCase() {
