@@ -19,17 +19,16 @@ public class Intro {
             System.out.println(array[i]);
         }
 
-
         /**
          * Another way to create an array
          */
         int[] array2 = new int[6];
         array2[0] = -3;
-        array2[1] = 5; 
-        array2[2] = 15; 
-        array2[3] = 17; 
-        array2[4] = 2; 
-        array2[5] = -19; 
+        array2[1] = 5;
+        array2[2] = 15;
+        array2[3] = 17;
+        array2[4] = 2;
+        array2[5] = -19;
 
         // Print all the values of the arra
         System.out.println("The length of array is " + array2.length);

@@ -21,12 +21,12 @@ public class Intro {
         // c++;
         // System.out.println(c);
 
-        for(char c = 'a'; c <= 'z'; c++) {
+        for (char c = 'a'; c <= 'z'; c++) {
             System.out.print(c);
         }
         System.out.println();
 
-        for(char c = 'P'; c >= 'A'; c--) {
+        for (char c = 'P'; c >= 'A'; c--) {
             System.out.print(c);
         }
         System.out.println();
